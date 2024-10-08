@@ -1,0 +1,41 @@
+Predators:
+    - Predators (printed as O's) survive by eating prey (P's) 
+    - Predators die and are removed from the grid if they haven't eaten any prey 
+      for more than 10 turns
+    - Predators move by first checking its 4 adjacent cells for prey. If there 
+      are prey, predators move towards a random prey and eat it. If there 
+      aren't any prey, the predator moves to an empty space if available and 
+      its counter for the number of steps without eating goes up
+    - Predators have a 10% chance to reproduce if there are at least 2 spaces 
+      around it available and it has eaten in the past 5 steps
+
+Prey:
+    - Prey move by moving to available empty spaces. Every time they move to an
+      empty space, they eat
+    - Prey die and are removed from the grid if a predator moves onto their cell 
+      (eaten) or starve by not eating (moving) for more than 3 turns
+    - Prey have a 10% chance to reproduce if there are at least 2 spaces around 
+      it available
+
+General rules/explanations:
+    - A 2D array is used to represent the simulation grid; empty spaces have the 
+      value 0, prey have value 1, and predators have value 2
+    - On each turn, the program loops through every cell in the 2d array to move the 
+      predators/prey. A new grid is created to store new positions of the predators/prey.
+      All cells from the new grid are copied to the original grid once everything has moved.
+    - Predators and prey can only move one step per turn
+    - All predators move first, followed by prey
+    - When predators/prey reproduce, a offspring is generated in a random available
+      adjacent cell before the predator/prey moves
+
+Differentiation option - environmental factors:
+    - Added small bushes that are stored in a separate 2D array of the same size 
+      as the original grid to the simulation
+    - The bushes allow the small prey to hide inside, out of the predators' vision,
+      making it so predators won't sense them even if they are located in adjacent cells
+    - Bushes randomly spawn in the beginning of the simulation
+    - Empty bushes are printed as 'x', and predators/prey located in a cell with a bush
+      are printed with their respective character in lowercase
+
+
+
